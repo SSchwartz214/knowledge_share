@@ -10,6 +10,23 @@ require 'rspec/rails'
 require 'database_cleaner'
 DatabaseCleaner.strategy = :truncation# Add additional requires below this line. Rails is not loaded until this point!
 
+def stub_omniauth
+    OmniAuth.config.test_mode = true
+    OmniAuth.config.mock_auth[:google] = OmniAuth::AuthHash.new({
+      provider: "google",
+      uid: "12345678910",
+      info: {
+        email: "seth@gmail.com",
+        first_name: "Seth",
+        last_name: "Schwartz"
+      },
+      credentials: {
+        token: "abcdefg12345",
+        refresh_token: "12345abcdefg",
+        expires_at: DateTime.now,
+      }
+    })
+end
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
