@@ -5,11 +5,16 @@ class SearchPresenter
   end
 
   def books
-    response = Faraday.get("https://www.googleapis.com/books/v1/volumes?q=#{@title}")
-    JSON.parse(response.body, symbolize_names: true)[:items]
-    .map do |book_data|
+    service.books.map do |book_data|
       Book.new(book_data)
     end
   end
+
+  private
+    attr_reader :title
+
+      def service
+        GoogleBooksService.new(title)
+      end
 
 end
