@@ -6,7 +6,7 @@ class Book
   def initialize(data)
       @title = data[:volumeInfo][:title]
       @authors = parse_authors(data[:volumeInfo][:authors])
-      @image = data[:volumeInfo][:imageLinks][:smallThumbnail]
+      @image = data[:volumeInfo][:imageLinks][:smallThumbnail] unless nil
   end
 
   def parse_authors(raw_authors)
@@ -16,6 +16,6 @@ class Book
       agg << "#{author}, "
       agg
     end
-      
+
   end
 end
