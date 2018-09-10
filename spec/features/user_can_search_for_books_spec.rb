@@ -12,7 +12,7 @@ require 'rails_helper'
 
     within(first(".book")) do
       expect(page).to have_css(".title")
-      expect(page).to have_css(".author")
+      expect(page).to have_css(".authors")
     end
   end
 end

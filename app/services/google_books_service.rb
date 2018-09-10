@@ -15,6 +15,8 @@ class GoogleBooksService
     end
 
     def conn
-      Faraday.new(url: "https://www.googleapis.com")
+      Faraday.new(url: "https://www.googleapis.com") do |faraday|
+        faraday.adapter Faraday.default_adapter
+      end
     end
 end
