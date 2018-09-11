@@ -7,4 +7,8 @@ Rails.application.routes.draw do
 
   get '/search', to: 'search#new'
   post '/search', to: 'search#index'
+
+  resources :users, only: [:show] do
+    resources :user_books
+  end
 end
