@@ -1,10 +1,13 @@
 <% @presenter.books.each do |book| %>
-
-  <ul class="book">
-    <li class="image"><%= image_tag book.sm_image  %></li>
-    <li class="title">Title: <%= book.title %></li>
-    <li class="authors">Author(s): <%= book.authors %></li>
-    <li class="description">Description: <%= book.description  %></li>
-    <li class="page-count">Pages: <%= book.page_count %></li>
-  </ul>
+<div class="card" style="width: 18rem;">
+    <%= image_tag(book.sm_image, class: "card-img-top") %>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Title: <%= book.title %></li>
+      <li class="list-group-item">Author(s): <%= book.authors %></li>
+      <li class="list-group-item">Pages: <%= book.page_count %></li>
+    </ul>
+<div class="card-body">
+  <a href="#" class="card-link">More Info</a>
+</div>
+</div>
 <% end %>
