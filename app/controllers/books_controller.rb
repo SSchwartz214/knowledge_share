@@ -5,8 +5,4 @@ class BooksController < ApplicationController
 
     redirect_to root_path
   end
-
-  def index
-    @read_books = current.books.where(status: 'read')
-  end
 end
