@@ -1,0 +1,10 @@
+<% @read_books.each do |book| %>
+<div class="card" style="width: 18rem;">
+    <%= image_tag(book.sm_image, class: "card-img-top") %>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Title: <%= book.title %></li>
+      <li class="list-group-item">Author(s): <%= book.authors %></li>
+    </ul>
+<div class="card-body">
+  <a href="#" class="card-link">More Info</a>
+<% end %>
