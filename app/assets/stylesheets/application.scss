@@ -1,14 +1,25 @@
 @import 'bootstrap';
 
-.bg-img {
-    /* The image used */
-    background-image: url("/assets/book.jpg");
+body, html {
+    height: 100%;
+}
 
-    /* Full height */
+.hero-image {
+    background-image: url("/assets/open-book.jpg");
+
     height: 100%;
 
-    /* Center and scale the image nicely */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    position: relative;
+}
+
+.hero-text {
+    text-align: center;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
 }
