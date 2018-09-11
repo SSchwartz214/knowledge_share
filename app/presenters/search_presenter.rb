@@ -6,7 +6,7 @@ class SearchPresenter
 
   def books
     service.books.map do |book_data|
-      Book.new(book_data)
+      GoogleBook.new(book_data)
     end
   end
 
