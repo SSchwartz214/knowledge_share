@@ -8,5 +8,7 @@ Rails.application.routes.draw do
   get '/search', to: 'search#new'
   post '/search', to: 'search#index'
 
+  get '/dashboard', to: 'dashboard#index'
+
   resources :books, only: [:create]
 end
