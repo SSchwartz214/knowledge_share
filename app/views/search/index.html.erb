@@ -1,8 +1,10 @@
 <% @presenter.books.each do |book| %>
 
   <ul class="book">
-    <li class="title"><%= book.title %></li>
-    <li class="authors"><%= book.authors %></li>
-    <li class="image"><%= image_tag book.image  %></li>
+    <li class="image"><%= image_tag book.sm_image  %></li>
+    <li class="title">Title: <%= book.title %></li>
+    <li class="authors">Author(s): <%= book.authors %></li>
+    <li class="description">Description: <%= book.description  %></li>
+    <li class="page-count">Pages: <%= book.page_count %></li>
   </ul>
 <% end %>
