@@ -6,7 +6,10 @@ require 'rails_helper'
     visit search_path
 
     fill_in :q, with: "1984"
-    click_on "Search"
+    
+    within('.search-form') do
+      click_on "Search"
+    end
 
     expect(current_path).to eq search_path
 

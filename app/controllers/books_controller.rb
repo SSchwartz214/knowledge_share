@@ -6,13 +6,9 @@ class BooksController < ApplicationController
     redirect_to dashboard_path
   end
 
-  # def show
-  #   @book = Book.find_by(params[:title])
-  # end
-  #
   def destroy
-    @book = current_user.Book.find_by(params[:title])
-    @book.destroy
+    @book = current_user.books.find(params[:id])
+    current_user.books.delete(@book)
 
     redirect_to dashboard_path
   end
