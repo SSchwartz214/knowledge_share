@@ -6,13 +6,15 @@ require 'rails_helper'
     visit search_path
 
     fill_in :q, with: "1984"
-    click_on "Search"
+
+    within('.search-form') do
+      click_on "Search"
+    end
 
     expect(current_path).to eq search_path
 
-    within(first(".book")) do
-      expect(page).to have_css(".title")
-      expect(page).to have_css(".authors")
+    within(first(".card")) do
+      expect(page).to have_content("1984")
     end
   end
 end

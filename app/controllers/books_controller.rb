@@ -5,4 +5,11 @@ class BooksController < ApplicationController
 
     redirect_to dashboard_path
   end
+
+  def destroy
+    @book = current_user.books.find(params[:id])
+    current_user.books.delete(@book)
+
+    redirect_to dashboard_path
+  end
 end

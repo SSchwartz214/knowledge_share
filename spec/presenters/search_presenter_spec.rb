@@ -11,7 +11,7 @@ require 'rails_helper'
     context "#books" do
       it "returns books with given title" do
         expect(subject.books.first.title).to eq "1984"
-        expect(subject.books.first).to be_a Book
+        expect(subject.books.first).to be_a GoogleBook
       end
     end
   end
