@@ -6,6 +6,6 @@
       <li class="list-group-item">Author(s): <%= book.authors %></li>
     </ul>
 <div class="card-body">
-  <a href="#" class="card-link">More Info</a>
+  <%= link_to "More Info", book_path(book),  class: "btn btn-outline-info"%>
   <%= link_to "Remove Book", book_path(book), method: "DELETE", class: "btn btn-outline-danger" %>
 <% end %>
