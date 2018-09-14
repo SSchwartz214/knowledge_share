@@ -1,8 +1,9 @@
 require 'rails_helper'
 
-describe 'user adds and removes a book to their dashboard page' do
-  scenario 'they click Read' do
+describe 'A user' do
+  it 'visits a book show page from dashboard' do
     user = create(:user)
+    book = create(:book)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
     visit search_path
@@ -19,14 +20,13 @@ describe 'user adds and removes a book to their dashboard page' do
       click_on "Add to Read"
     end
 
-    expect(current_path).to eq(dashboard_path)
-    expect(page).to have_content("1984")
-
-    within first(".card") do
-      click_on "Remove"
+    within(first(".card")) do
+      click_on "More Info"
     end
 
-    expect(current_path).to eq(dashboard_path)
-    expect(page).to_not have_content("1984")
+    expect(current_path).to eq(book_path(book))
+
+    expect(page).to have_css(".description")
+    expect(page).to have_css(".page_count")
   end
 end

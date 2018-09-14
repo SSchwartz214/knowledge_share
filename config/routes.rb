@@ -10,5 +10,5 @@ Rails.application.routes.draw do
 
   get '/dashboard', to: 'dashboard#index'
 
-  resources :books, only: [:create, :destroy]
+  resources :books, only: [:create, :show, :destroy]
 end
