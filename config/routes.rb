@@ -11,4 +11,13 @@ Rails.application.routes.draw do
   get '/dashboard', to: 'dashboard#index'
 
   resources :books, only: [:create, :show, :destroy]
+
+  namespace :api do
+    namespace :v1 do
+      namespace :user do
+        resources :read_books, only: [:index]
+    end
+  end
+end
+
 end
