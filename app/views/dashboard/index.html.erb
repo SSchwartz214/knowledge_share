@@ -7,7 +7,7 @@
     <button id="toggle">Read Books</button>
 
     <div class="read-books">
-      <h3>Read</h3>
+      <!-- <h3>Read</h3>
       <% @read_books.each do |book| %>
       <div class="card" style="width: 18rem;">
         <%= image_tag(book.sm_image, class: "card-img-top") %>
@@ -18,17 +18,29 @@
         <div class="card-body">
           <%= link_to "More Info", book_path(book),  class: "btn btn-outline-info"%>
           <%= link_to "Remove Book", book_path(book), method: "DELETE", class: "btn btn-outline-danger" %>
-          <% end %>
+          <% end %> -->
     </div>
   </body>
 
-  <script>
-  $(document).ready(function(){
-    $("#toggle").click(function(){
-      $(".read-books").toggle();
+    <script>
+      $("#toggle").click(async function(){
+        const fetchReadBooks = async () => {
+          const response = await fetch("api/v1/user/read_books");
+          const readBooks = await response.json();
+          return readBooks;
+        }
+        const books = await fetchReadBooks();
+        console.log(books)
+        $(".read-books").toggle();
+      });
+
+  </script>
+  <script type="text/javascript">
+    const displayBooks = books.map(book => {
+      return <h1>title: {book.title}</h1>
     });
-  });
-</script>
+
+  </script>
 </html>
 
 
@@ -36,8 +48,9 @@
 
 
     <script>
-    // fetch("api/v1/user/read_books")
+    // const fetchReadBooks = async () => { return await fetch("api/v1/user/read_books")
     //   .then((response) => response.json())
-    //   .then((response) => console.log(response))
-    //   .catch((error) => console.error({ error }))
+    //   .then((response) => response)
+    //   .catch((error) => error)
+    // }
     </script>
