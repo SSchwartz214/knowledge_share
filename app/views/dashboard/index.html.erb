@@ -1,19 +1,43 @@
-<h3 class="read-books">Read Books:</h3>
-<% @read_books.each do |book| %>
-<div class="card" style="width: 18rem;">
-    <%= image_tag(book.sm_image, class: "card-img-top") %>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">Title: <%= book.title %></li>
-      <li class="list-group-item">Author(s): <%= book.authors %></li>
-    </ul>
-<div class="card-body">
-  <%= link_to "More Info", book_path(book),  class: "btn btn-outline-info"%>
-  <%= link_to "Remove Book", book_path(book), method: "DELETE", class: "btn btn-outline-danger" %>
-<% end %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+  </head>
+  <body>
+    <button id="toggle">Read Books</button>
 
-<script>
-  fetch("api/v1/user/read_books")
-    .then((response) => response.json())
-    .then((response) => console.log(response))
-    .catch((error) => console.error({ error }))
+    <div class="read-books">
+      <h3>Read</h3>
+      <% @read_books.each do |book| %>
+      <div class="card" style="width: 18rem;">
+        <%= image_tag(book.sm_image, class: "card-img-top") %>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Title: <%= book.title %></li>
+          <li class="list-group-item">Author(s): <%= book.authors %></li>
+        </ul>
+        <div class="card-body">
+          <%= link_to "More Info", book_path(book),  class: "btn btn-outline-info"%>
+          <%= link_to "Remove Book", book_path(book), method: "DELETE", class: "btn btn-outline-danger" %>
+          <% end %>
+    </div>
+  </body>
+
+  <script>
+  $(document).ready(function(){
+    $("#toggle").click(function(){
+      $(".read-books").toggle();
+    });
+  });
 </script>
+</html>
+
+
+
+
+
+    <script>
+    // fetch("api/v1/user/read_books")
+    //   .then((response) => response.json())
+    //   .then((response) => console.log(response))
+    //   .catch((error) => console.error({ error }))
+    </script>
