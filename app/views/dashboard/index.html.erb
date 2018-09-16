@@ -1,11 +1,55 @@
-<% @read_books.each do |book| %>
-<div class="card" style="width: 18rem;">
-    <%= image_tag(book.sm_image, class: "card-img-top") %>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">Title: <%= book.title %></li>
-      <li class="list-group-item">Author(s): <%= book.authors %></li>
-    </ul>
-<div class="card-body">
-  <%= link_to "More Info", book_path(book),  class: "btn btn-outline-info"%>
-  <%= link_to "Remove Book", book_path(book), method: "DELETE", class: "btn btn-outline-danger" %>
-<% end %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+  </head>
+  <body>
+    <div class="btn-group" role="group" aria-label="Basic example">
+      <button id="toggle" type="button" class="btn btn-outline-secondary">Read Books</button>
+      <button type="button" class="btn btn-outline-secondary">Currently Reading</button>
+      <button type="button" class="btn btn-outline-secondary">Want to Read</button>
+    </div>
+    <div class="read-books" style="display:none">
+    </div>
+  </body>
+
+    <script>
+    let books;
+      $("#toggle").click(async function(){
+        const fetchReadBooks = async () => {
+          const response = await fetch("api/v1/user/read_books");
+          const readBooks = await response.json();
+          return readBooks;
+        }
+
+        books = await fetchReadBooks();
+        const displayBooks = books.map(book => {
+          return (
+            `<div class="card" style="width: 18rem; text-align:center;display:inline-block;">
+              <img class="card-img-top" src="${book.sm_image}/100px180/?text=Image cap" alt="${book.title}">
+              <div class="card-block">
+                  <h4 class="card-title">${book.title}</h4>
+                  <p class="card-text">${book.authors}</p>
+              <div class="card-footer">
+                <a href="/books/${book.id}" class="badge badge-info">More Info</a>
+                <a href="/books/${book.id}" class="badge badge-danger" data-confirm="Are you sure you want to remove ${book.title} from your list?" data-method="delete" rel="nofollow">Remove</a>
+              </div>
+              </div>
+            </div>`
+          )
+        });
+
+        $('.read-books').html(displayBooks)
+        $('.read-books').toggle();
+
+      });
+  </script>
+</html>
+
+    <script>
+    // fetch("api/v1/user/read_books")
+    //   .then((response) => response.json())
+    //   .then((response) => response)
+    //   .catch((error) => error)
+    // }
+    </script>

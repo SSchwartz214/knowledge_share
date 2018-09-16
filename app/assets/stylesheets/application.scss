@@ -21,5 +21,35 @@ body, html {
     top: 20%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: white;
+    color: #F4976C;
+}
+
+#greeting {
+  color: #303C6C;
+}
+
+.btn {
+    padding: 14px 24px;
+    border: 0 none;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.btn:focus, .btn:active:focus, .btn.active:focus {
+    outline: 0 none;
+}
+
+.btn-primary {
+    background: #303C6C;
+    color: #ffffff;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+    background: #272f4e;
+}
+
+.btn-primary:active, .btn-primary.active {
+    background: #272f4e;
+    box-shadow: none;
 }

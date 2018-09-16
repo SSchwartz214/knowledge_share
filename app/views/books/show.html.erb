@@ -1,7 +1,8 @@
-<div class="card" style="width: 25rem;">
+<div class="card" style="width: 18rem;">
   <%= image_tag(@book.sm_image, class: "card-img-top") %>
   <div class="card-body">
     <h5 class="card-title"><%= @book.title %></h5>
+    <p class="card-text"><%= @book.authors %></p>
     <p class="card-text"><%= @description %></p>
     <p class="card-text">Pages: <%= @page_count %></p>
     <%= link_to "Back", :back, class: "btn btn-primary" %>

@@ -6,7 +6,11 @@
       <li class="list-group-item">Author(s): <%= book.authors %></li>
     </ul>
 <div class="card-body">
-  <%= link_to "Add to Read", books_path(title: book.title, image: book.sm_image, authors: book.authors, description: book.description, page_count: book.page_count), method: 'post', class: "btn btn-primary" %>
+  <% if current_user %>
+    <%= link_to "Add to Read", books_path(title: book.title, image: book.sm_image, authors: book.authors, description: book.description, page_count: book.page_count), method: 'post', class: "btn btn-primary" %>
+  <% else %>
+  <%= link_to "Sign in to add book", "/auth/google", class: "btn btn-outline-primary" %>
+    <% end %>
 </div>
 </div>
 <% end %>
