@@ -4,8 +4,6 @@ class BooksController < ApplicationController
     unless current_user.books.include?(book)
       user_book = UserBook.create(user_book_params.merge(book_id: book.id, user_id: current_user.id))
     end
-    require "pry"; binding.pry
-    # current_user.books << book unless current_user.books.include?(book)
 
     redirect_to dashboard_path
   end
