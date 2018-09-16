@@ -4,9 +4,14 @@
     <title></title>
   </head>
   <body>
-    <button id="toggle">Read Books</button>
+    <!-- <button id="toggle" type="button" class="btn btn-outline-info">Read Books</button> -->
 
-    <div class="read-books">
+    <div class="btn-group" role="group" aria-label="Basic example">
+      <button id="toggle" type="button" class="btn btn-outline-secondary">Read Books</button>
+      <button type="button" class="btn btn-outline-secondary">Currently Reading</button>
+      <button type="button" class="btn btn-outline-secondary">Want to Read</button>
+    </div>
+    <div class="read-books" style="display:none">
       <!-- <h3>Read</h3>
       <% @read_books.each do |book| %>
       <div class="card" style="width: 18rem;">
@@ -23,32 +28,36 @@
   </body>
 
     <script>
+    let books;
       $("#toggle").click(async function(){
         const fetchReadBooks = async () => {
           const response = await fetch("api/v1/user/read_books");
           const readBooks = await response.json();
           return readBooks;
         }
-        const books = await fetchReadBooks();
-        console.log(books)
-        $(".read-books").toggle();
+
+        books = await fetchReadBooks();
+        const displayBooks = books.map(book => {
+          return (
+            `<div>
+              <img src="${book.sm_image}" alt="${book.title} thumbnail"/>
+              <h5>Title: ${book.title}</h5>
+              <p>Author(s): ${book.authors}</p>
+              <a href="/books/${book.id}" class="badge badge-info">More Info</a>
+              <a href="/books/${book.id}" class="badge badge-danger" data-confirm="Are you sure?" data-method="delete" rel="nofollow">Remove</a>
+            </div>`
+          )
+        });
+
+        $('.read-books').html(displayBooks)
+        $('.read-books').toggle();
+
       });
-
-  </script>
-  <script type="text/javascript">
-    const displayBooks = books.map(book => {
-      return <h1>title: {book.title}</h1>
-    });
-
   </script>
 </html>
 
-
-
-
-
     <script>
-    // const fetchReadBooks = async () => { return await fetch("api/v1/user/read_books")
+    // fetch("api/v1/user/read_books")
     //   .then((response) => response.json())
     //   .then((response) => response)
     //   .catch((error) => error)
