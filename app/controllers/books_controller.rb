@@ -1,7 +1,11 @@
 class BooksController < ApplicationController
   def create
     book = Book.find_or_create_by!(book_params)
-    current_user.books << book unless current_user.books.include?(book)
+    unless current_user.books.include?(book)
+      user_book = UserBook.create(user_book_params.merge(book_id: book.id, user_id: current_user.id))
+    end
+    require "pry"; binding.pry
+    # current_user.books << book unless current_user.books.include?(book)
 
     redirect_to dashboard_path
   end
@@ -22,6 +26,10 @@ class BooksController < ApplicationController
   private
   def book_params
     params.require(:book).permit(:title, :authors, :sm_image, :description, :page_count)
+  end
+
+  def user_book_params
+    params.require(:user_book).permit(:status)
   end
 
 end
