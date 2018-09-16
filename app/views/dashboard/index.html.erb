@@ -1,21 +1,21 @@
     <div class="btn-group" role="group" aria-label="Basic example">
-      <button id="toggle" type="button" class="btn btn-outline-secondary">Read Books</button>
-      <button type="button" class="btn btn-outline-secondary">Currently Reading</button>
-      <button type="button" class="btn btn-outline-secondary">Want to Read</button>
+      <button type="button" class="btn btn-outline-secondary js-book-toggle" data-toggle="0">Read Books</button>
+      <button type="button" class="btn btn-outline-secondary js-book-toggle" data-toggle="1">Currently Reading</button>
+      <button type="button" class="btn btn-outline-secondary js-book-toggle" data-toggle="2">Want to Read</button>
     </div>
-    <div class="read-books" style="display:none">
+    <div class="books-container">
     </div>
 
     <script>
     let books;
-      $("#toggle").click(async function(){
-        const fetchReadBooks = async () => {
-          const response = await fetch("api/v1/user/read_books");
-          const readBooks = await response.json();
-          return readBooks;
+      $(".js-book-toggle").click(async function(){
+        const fetchBooks = async () => {
+          const response = await fetch("api/v1/user/books?status=" + $(this).data('toggle'));
+          const Books = await response.json();
+          return Books;
         }
 
-        books = await fetchReadBooks();
+        books = await fetchBooks();
         const displayBooks = books.map(book => {
           return (
             `<div class="card" style="width: 18rem; text-align:center;display:inline-block;">
@@ -32,8 +32,7 @@
           )
         });
 
-        $('.read-books').html(displayBooks)
-        $('.read-books').toggle();
-
+        $('.books-container').html(displayBooks)
+        // $('.books-container').toggle();
       });
   </script>
