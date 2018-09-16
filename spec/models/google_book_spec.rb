@@ -20,7 +20,7 @@ describe GoogleBook do
 
   context "instance methods" do
     context '#title' do
-      it 'returns a title' do
+      xit 'returns a title' do
         expect(subject.title).to eq "1984"
       end
     end
