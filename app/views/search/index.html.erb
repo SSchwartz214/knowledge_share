@@ -7,7 +7,9 @@
     </ul>
   <div class="card-body">
     <% if current_user %>
-      <%= link_to "Add to Read", books_path(title: book.title, image: book.sm_image, authors: book.authors, description: book.description, page_count: book.page_count), method: 'post', class: "btn btn-primary" %>
+    <!-- # book_path(book: title: book.title, authors: book.authors) -->
+      <%= link_to "Add to Read", books_path(book: {title: book.title, sm_image: book.sm_image, authors: book.authors, description: book.description, page_count: book.page_count}), method: 'post', class: "btn btn-primary" %>
+      <%#= link_to "Add to Currently Reading", cuurently_reading_books_path(title: book.title, image: book.sm_image, authors: book.authors, description: book.description, page_count: book.page_count), method: 'post', class: "btn btn-primary" %>
     <% else %>
     <%= link_to "Sign in to add book", "/auth/google", class: "btn btn-outline-primary" %>
       <% end %>

@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
   def create
-    book = Book.find_or_create_by!(title: params[:title], authors: params[:authors], sm_image: params[:image], description: params[:description], page_count: params[:page_count])
+    book = Book.find_or_create_by!(book_params)
     current_user.books << book unless current_user.books.include?(book)
 
     redirect_to dashboard_path
@@ -18,4 +18,10 @@ class BooksController < ApplicationController
 
     redirect_to dashboard_path
   end
+
+  private
+  def book_params
+    params.require(:book).permit(:title, :authors, :sm_image, :description, :page_count)
+  end
+
 end
