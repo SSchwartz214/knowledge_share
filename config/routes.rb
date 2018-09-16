@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       namespace :user do
-        resources :read_books, only: [:index]
+        resources :books, only: [:index]
     end
   end
 end
