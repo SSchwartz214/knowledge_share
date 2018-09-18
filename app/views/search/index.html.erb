@@ -7,7 +7,7 @@
     </ul>
   <div class="card-body">
     <% if current_user %>
-      <%= link_to "Add to Read", books_path(user_book: {status: 'read'},
+      <%= link_to "Add to Already Read", books_path(user_book: {status: 'read'},
                                             book: {title: book.title,
                                                    sm_image: book.sm_image,
                                                    authors: book.authors,
