@@ -1,5 +1,5 @@
 <% @presenter.books.each do |book| %>
-<div class="card" style="width: 18rem;">
+<div class="card" style="width: 18rem;display:inline-block;">
     <%= image_tag(book.sm_image, class: "card-img-top") %>
     <ul class="list-group list-group-flush">
       <li class="list-group-item">Title: <%= book.title %></li>
