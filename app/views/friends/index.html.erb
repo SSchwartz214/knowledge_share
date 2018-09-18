@@ -1,0 +1,59 @@
+<h1 class="display-3 text-center">Friends</h1>
+<table class="table table-hover table-light">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% current_user.friendships.each do |friendship|%>
+    <tr>
+      <td><%= friendship.friend.full_name %></td>
+      <td><%= friendship.friend.email %></td>
+      <td><%= link_to "remove", friendship, method: "DELETE" %><td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h1 class="display-4 text-left">Friended by</h1>
+<table class="table table-hover table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% current_user.inverse_friends.each do |user|%>
+    <tr>
+      <td><%= user.full_name %></td>
+      <td><%= user.email %></td>
+      <td><%= link_to "Add Friend", friendships_path(friend_id: user), method: "POST" %><td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h1 class="display-4 text-left">All Users</h1>
+<table class="table table-hover table-light">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user|%>
+    <tr>
+      <td><%= user.full_name %></td>
+      <td><%= user.email %></td>
+      <td><%= link_to "Add Friend", friendships_path(friend_id: user), method: "POST" %><td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
