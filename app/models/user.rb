@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_many :user_books
   has_many :books, through: :user_books
-  
+
   has_many :friendships
   has_many :friends, :through => :friendships
   has_many :inverse_friendships, :class_name => "Friendship", :foreign_key => "friend_id"
@@ -21,5 +21,9 @@ class User < ApplicationRecord
     }
     user.save!
     user
+  end
+
+  def full_name
+    "#{first_name + " " + last_name}"
   end
 end

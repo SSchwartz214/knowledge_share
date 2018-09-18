@@ -12,7 +12,9 @@ Rails.application.routes.draw do
 
   resources :books, only: [:create, :show, :destroy]
 
-  resource :friendships, only: [:create, :destroy]
+  resources :friendships, only: [:create, :destroy]
+
+  resources :friends, only: [:index]
 
   namespace :api do
     namespace :v1 do
