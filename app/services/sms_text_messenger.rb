@@ -1,4 +1,4 @@
-class TwilioTextMessenger
+class SmsTextMessenger
   attr_reader :message,
               :number
 

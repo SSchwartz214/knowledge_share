@@ -10,8 +10,7 @@
     <h6>Enter phone number:</h6>
     <%= form_with url: recommendations_path do |form| %>
       <%= form.text_field :number %>
-      <%= form.hidden_field :book, placeholder: "title", value: @book.title %>
-      <%= form.hidden_field :link, placeholder: "url", value: book_path(@book) %>
+      <%= form.hidden_field :book_id, placeholder: "title", value: @book.id %>
 
       <%= form.submit "Send Text" %>
     <% end %>
