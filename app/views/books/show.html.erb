@@ -8,9 +8,10 @@
     <%= link_to "Back", :back, class: "btn btn-primary" %>
     <h5>Reccomend Book</h5>
     <h6>Enter phone number:</h6>
-    <%= form_tag('/twilio', method: "POST") do %>
-    <%= text_field_tag(:number) %>
-    <%= submit_tag("Submit") %>
+    <%= form_tag('/recommendations', method: "POST") do %>
+      <%= label_tag(:number, "") %>
+      <%= text_field_tag(:number) %>
+      <%= submit_tag("Submit") %>
     <% end %>
   </div>
 </div>

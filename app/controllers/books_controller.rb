@@ -9,7 +9,6 @@ class BooksController < ApplicationController
   end
 
   def show
-
     @book = current_user.books.find(params[:id])
     @description = @book.description
     @page_count = @book.page_count
