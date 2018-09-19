@@ -12,7 +12,7 @@ describe 'A registered user' do
 
       fill_in :number, with: "5166591396"
 
-      click_on "Submit"
+      click_on "Send Text"
     end
   end
 end
