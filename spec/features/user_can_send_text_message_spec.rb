@@ -13,14 +13,7 @@ describe 'A registered user' do
       fill_in :number, with: "5166591396"
 
       click_on "Send Text"
+      # Then the phone number should receive a text message that says “Seth has invited you to read {BOOK TITLE}! For more info visit: ’http://example.com/path/to/book'” (or whatever your real routes are)
     end
   end
 end
-
-# Scenario: A user can send an text message invite to read a book to a phone number with a link to the book show page
-#
-# As a logged in user
-# When I visit my “Books to Read” page
-# Then I should see a form for entering a phone number
-# And when I click submit
-# Then the phone number should receive a text message that says “Seth has invited you to read {BOOK TITLE}! For more info visit: ’http://example.com/path/to/book'” (or whatever your real routes are)
