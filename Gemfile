@@ -27,6 +27,7 @@ group :development, :test do
   gem 'simplecov'
   gem 'shoulda-matchers'
   gem "factory_bot_rails"
+  gem 'twilio-ruby'
 end
 
 group :development do

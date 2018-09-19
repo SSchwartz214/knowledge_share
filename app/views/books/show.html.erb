@@ -6,5 +6,13 @@
     <p class="card-text"><%= @description %></p>
     <p class="card-text">Pages: <%= @page_count %></p>
     <%= link_to "Back", :back, class: "btn btn-primary" %>
+    <h5>Reccommend Book</h5>
+    <h6>Enter phone number:</h6>
+    <%= form_with url: recommendations_path do |form| %>
+      <%= form.text_field :number %>
+      <%= form.hidden_field :book_id, placeholder: "title", value: @book.id %>
+
+      <%= form.submit "Send Text" %>
+    <% end %>
   </div>
 </div>

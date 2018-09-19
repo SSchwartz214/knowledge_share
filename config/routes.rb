@@ -16,6 +16,8 @@ Rails.application.routes.draw do
 
   resources :friends, only: [:index]
 
+  resource :recommendations, only: [:create]
+
   namespace :api do
     namespace :v1 do
       namespace :user do
