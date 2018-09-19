@@ -10,7 +10,7 @@ describe 'A registered user' do
 
       visit book_path(book)
 
-      fill_in :text_form, with: "5166591396"
+      fill_in :number, with: "5166591396"
 
       click_on "Submit"
     end
