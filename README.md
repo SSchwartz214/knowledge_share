@@ -4,7 +4,7 @@
 
 #### Description
 
-KnowledgeShare is a web app that stores your favorite books and allows you to send reccomendations to your friends.  It utilizes Google Books API to allow users to search the full catalog of Google Books.  After a search a user can add a book to one of three lists depending on the read status.  A user can add friends from any of the users and send text messages with a link to the book info page.
+KnowledgeShare is a web app that stores your favorite books and allows you to send reccomendations to your friends.  It utilizes Google Books API to allow users to search the full catalog of Google Books.  After a search, a user can add a book to one of three lists depending on the read status.  A user can add friends from any of the users and send text messages with a link to the book info page.
 
 
 #### Rails version: 5.1.6
