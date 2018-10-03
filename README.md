@@ -29,7 +29,7 @@ $ rspec
 
 * To view production version, visit:
 ```
-https://fierce-journey-80426.herokuapp.com/
+https://knowledge-share-app.herokuapp.com/
 ```
 
 #### Questions or comments?
