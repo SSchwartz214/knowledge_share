@@ -1,18 +1,26 @@
 class GoogleBook
   attr_reader :title,
               :authors,
-              :sm_image,
-              :bg_image,
               :description,
               :page_count
 
   def initialize(data)
       @title = data[:volumeInfo][:title]
       @authors = parse_authors(data[:volumeInfo][:authors])
-      @sm_image = data[:volumeInfo][:imageLinks][:smallThumbnail] unless nil
-      @bg_image = data[:volumeInfo][:imageLinks][:thumbnail] unless nil
+      @sm_image = data[:volumeInfo][:imageLinks][:smallThumbnail] if data[:volumeInfo][:imageLinks]
+      @bg_image = data[:volumeInfo][:imageLinks][:thumbnail] if data[:volumeInfo][:imageLinks]
       @description = data[:volumeInfo][:description]
       @page_count = data[:volumeInfo][:pageCount]
+  end
+
+  def sm_image
+    return @sm_image if @sm_image
+    'https://screenshotlayer.com/images/assets/placeholder.png'
+  end
+
+  def bg_image
+    return @bg_image if @bg_image
+    'https://screenshotlayer.com/images/assets/placeholder.png'
   end
 
   def parse_authors(raw_authors)
