@@ -1,8 +1,6 @@
 class GoogleBook
   attr_reader :title,
               :authors,
-              :sm_image,
-              :bg_image,
               :description,
               :page_count
 
@@ -20,8 +18,8 @@ class GoogleBook
     'https://screenshotlayer.com/images/assets/placeholder.png'
   end
 
-  def lg_image
-    return @lg_image if @lg_image
+  def bg_image
+    return @bg_image if @bg_image
     'https://screenshotlayer.com/images/assets/placeholder.png'
   end
 
