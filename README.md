@@ -29,9 +29,7 @@ $ rspec
 ```
 
 * To view production version, visit:
-```
 [Deployed App](https://knowledge-share-app.herokuapp.com/)
-```
 
 #### Questions or comments?
 
