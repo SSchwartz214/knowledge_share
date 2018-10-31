@@ -1,8 +1,6 @@
-# README
+# KnowledgeShare
 
-### KnowledgeShare
-
-#### Description
+### Description
 
 KnowledgeShare is a web app that stores your favorite books and allows you to send reccomendations to your friends.  It utilizes Google Books API to allow users to search the full catalog of Google Books.  After a search, a user can add a book to one of three lists depending on the read status.  A user can add friends from any of the users and send text messages with a link to the book info page.
 
@@ -11,7 +9,7 @@ KnowledgeShare is a web app that stores your favorite books and allows you to se
 * To view production version, visit:
 [KnowledgeShare](https://knowledge-share-app.herokuapp.com/)
 
-#### Rails version: 5.1.6
+### Rails version: 5.1.6
 
 ### Configuration
 
@@ -31,7 +29,7 @@ $ bundle update
 $ rspec
 ```
 
-#### Questions or comments?
+### Questions or comments?
 
 Please contact me at:
 
