@@ -8,6 +8,9 @@ KnowledgeShare is a web app that stores your favorite books and allows you to se
 
 <img width="1440" alt="screen shot 2018-10-24 at 11 40 23 am" src="https://user-images.githubusercontent.com/30695131/47450136-adb6ee00-d781-11e8-872d-a7bc3cb6141a.png">
 
+* To view production version, visit:
+[KnowledgeShare](https://knowledge-share-app.herokuapp.com/)
+
 #### Rails version: 5.1.6
 
 ### Configuration
@@ -27,9 +30,6 @@ $ bundle update
 ```
 $ rspec
 ```
-
-* To view production version, visit:
-[Deployed App](https://knowledge-share-app.herokuapp.com/)
 
 #### Questions or comments?
 
