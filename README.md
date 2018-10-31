@@ -30,7 +30,7 @@ $ rspec
 
 * To view production version, visit:
 ```
-https://knowledge-share-app.herokuapp.com/
+[Deployed App](https://knowledge-share-app.herokuapp.com/)
 ```
 
 #### Questions or comments?
